@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SMK Tamtama 2 Sidareja</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{font-family:Arial;margin:0;background:#f4f6f9;}
+header{background:linear-gradient(to right,#004080,#0073e6);
+color:white;text-align:center;padding:40px 20px;}
+nav{background:#003366;text-align:center;padding:10px;}
+nav button{background:#004080;color:white;border:none;
+padding:10px 15px;margin:5px;border-radius:5px;font-weight:bold;cursor:pointer;}
+nav button:hover{background:orange;}
+.container{padding:20px;}
+.section{display:none;}
+.active{display:block;}
+.card{background:white;padding:20px;margin:15px 0;
+border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
+.box{background:#0073e6;color:white;padding:15px;border-radius:10px;text-align:center;}
+.hero-img{width:100%;border-radius:10px;margin-bottom:20px;}
+table{width:100%;border-collapse:collapse;margin-top:15px;background:white;}
+th,td{border:1px solid #ccc;padding:8px;text-align:center;}
+th{background:#004080;color:white;}
+tr:nth-child(even){background:#f2f2f2;}
+</style>
+
+<script>
+function showSection(id){
+document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+}
+function hitungRata(){
+document.querySelectorAll("#tabelNilai tbody tr").forEach(r=>{
+let m=+r.children[1].innerText;
+let i=+r.children[2].innerText;
+let ing=+r.children[3].innerText;
+let p=+r.children[4].innerText;
+r.children[5].innerText=((m+i+ing+p)/4).toFixed(2);
+});
+}
+function hitungAbsen(){
+document.querySelectorAll("#tabelAbsensi tbody tr").forEach(r=>{
+let h=+r.children[1].innerText;
+let iz=+r.children[2].innerText;
+let s=+r.children[3].innerText;
+r.children[5].innerText=h+iz+s;
+});
+}
+window.onload=function(){hitungRata();hitungAbsen();}
+</script>
+</head>
+
+<body>
+
+<header>
+<h1>SMK TAMTAMA 2 SIDAREJA</h1>
+<p>Sekolah Kejuruan Unggul & Berprestasi</p>
+</header>
+
+<nav>
+<button onclick="showSection('beranda')">Beranda</button>
+<button onclick="showSection('siswa')">Siswa</button>
+<button onclick="showSection('nilai')">Nilai</button>
+<button onclick="showSection('absensi')">Absensi</button>
+<button onclick="showSection('ekskul')">Ekstrakurikuler</button>
+</nav>
+
+<div class="container">
+
+<!-- BERANDA -->
+<div id="beranda" class="section active">
+
+<img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b" class="hero-img">
+
+<div class="card">
+<h2>Profil Sekolah</h2>
+<p>SMK Tamtama 2 Sidareja adalah sekolah kejuruan yang mencetak lulusan profesional dan siap kerja.</p>
+<p>Alamat: Sidareja, Cilacap, Jawa Tengah</p>
+</div>
+
+<div class="card">
+<h2>Jurusan</h2>
+<div class="grid">
+<div class="box"><b>TKRO</b><br>Teknik Kendaraan Ringan Otomotif</div>
+<div class="box"><b>TAV</b><br>Teknik Audio Video</div>
+<div class="box"><b>TBSM</b><br>Teknik dan Bisnis Sepeda Motor</div>
+</div>
+</div>
+
+<div class="card">
+<h2>Fasilitas</h2>
+<div class="grid">
+<div class="box">Lab Otomotif</div>
+<div class="box">Lab Elektronika</div>
+<div class="box">Bengkel Praktik</div>
+<div class="box">Perpustakaan</div>
+<div class="box">Lapangan Olahraga</div>
+<div class="box">WiFi Sekolah</div>
+</div>
+</div>
+
+</div>
+
+<!-- DATA SISWA -->
+<div id="siswa" class="section">
+<h2>Data 10 Siswa</h2>
+<table>
+<tr>
+<th>No</th>
+<th>NIS</th>
+<th>Nama</th>
+<th>Jenis Kelamin</th>
+<th>Kelas</th>
+</tr>
+<tr><td>1</td><td>1001</td><td>Ahmad Fauzi</td><td>L</td><td>X TKRO</td></tr>
+<tr><td>2</td><td>1002</td><td>Siti Aisyah</td><td>P</td><td>X TAV</td></tr>
+<tr><td>3</td><td>1003</td><td>Budi Santoso</td><td>L</td><td>X TBSM</td></tr>
+<tr><td>4</td><td>1004</td><td>Dewi Lestari</td><td>P</td><td>XI TKRO</td></tr>
+<tr><td>5</td><td>1005</td><td>Rizky Pratama</td><td>L</td><td>XI TAV</td></tr>
+<tr><td>6</td><td>1006</td><td>Nabila Putri</td><td>P</td><td>XI TBSM</td></tr>
+<tr><td>7</td><td>1007</td><td>Andi Saputra</td><td>L</td><td>XII TKRO</td></tr>
+<tr><td>8</td><td>1008</td><td>Maya Sari</td><td>P</td><td>XII TAV</td></tr>
+<tr><td>9</td><td>1009</td><td>Fajar Hidayat</td><td>L</td><td>XII TBSM</td></tr>
+<tr><td>10</td><td>1010</td><td>Lina Marlina</td><td>P</td><td>X TKRO</td></tr>
+</table>
+</div>
+
+<!-- NILAI -->
+<div id="nilai" class="section">
+<h2>Data Nilai</h2>
+<table id="tabelNilai">
+<tr>
+<th>Nama</th><th>MTK</th><th>Indo</th><th>Inggris</th><th>Produktif</th><th>Rata-rata</th>
+</tr>
+<tr><td>Ahmad Fauzi</td><td>85</td><td>88</td><td>84</td><td>90</td><td></td></tr>
+<tr><td>Siti Aisyah</td><td>90</td><td>87</td><td>89</td><td>92</td><td></td></tr>
+<tr><td>Budi Santoso</td><td>78</td><td>80</td><td>75</td><td>85</td><td></td></tr>
+<tr><td>Dewi Lestari</td><td>88</td><td>86</td><td>90</td><td>91</td><td></td></tr>
+<tr><td>Rizky Pratama</td><td>82</td><td>79</td><td>80</td><td>88</td><td></td></tr>
+<tr><td>Nabila Putri</td><td>91</td><td>90</td><td>93</td><td>95</td><td></td></tr>
+<tr><td>Andi Saputra</td><td>76</td><td>75</td><td>78</td><td>80</td><td></td></tr>
+<tr><td>Maya Sari</td><td>89</td><td>92</td><td>88</td><td>90</td><td></td></tr>
+<tr><td>Fajar Hidayat</td><td>84</td><td>83</td><td>82</td><td>87</td><td></td></tr>
+<tr><td>Lina Marlina</td><td>93</td><td>91</td><td>94</td><td>96</td><td></td></tr>
+</table>
+</div>
+
+<!-- ABSENSI -->
+<div id="absensi" class="section">
+<h2>Data Absensi</h2>
+<table id="tabelAbsensi">
+<tr>
+<th>Nama</th><th>Hadir</th><th>Izin</th><th>Sakit</th><th>Alpa</th><th>Total</th>
+</tr>
+<tr><td>Ahmad Fauzi</td><td>90</td><td>2</td><td>1</td><td>0</td><td></td></tr>
+<tr><td>Siti Aisyah</td><td>92</td><td>1</td><td>0</td><td>0</td><td></td></tr>
+<tr><td>Budi Santoso</td><td>88</td><td>3</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>Dewi Lestari</td><td>91</td><td>1</td><td>1</td><td>0</td><td></td></tr>
+<tr><td>Rizky Pratama</td><td>87</td><td>4</td><td>2</td><td>1</td><td></td></tr>
+<tr><td>Nabila Putri</td><td>95</td><td>0</td><td>0</td><td>0</td><td></td></tr>
+<tr><td>Andi Saputra</td><td>85</td><td>3</td><td>1</td><td>2</td><td></td></tr>
+<tr><td>Maya Sari</td><td>93</td><td>1</td><td>1</td><td>0</td><td></td></tr>
+<tr><td>Fajar Hidayat</td><td>89</td><td>2</td><td>1</td><td>1</td><td></td></tr>
+<tr><td>Lina Marlina</td><td>96</td><td>0</td><td>0</td><td>0</td><td></td></tr>
+</table>
+</div>
+
+<!-- EKSTRAKURIKULER -->
+<div id="ekskul" class="section">
+<h2>Data Ekstrakurikuler</h2>
+<table>
+<tr><th>Nama</th><th>Ekstrakurikuler</th></tr>
+<tr><td>Ahmad Fauzi</td><td>Futsal</td></tr>
+<tr><td>Siti Aisyah</td><td>PMR</td></tr>
+<tr><td>Budi Santoso</td><td>Basket</td></tr>
+<tr><td>Dewi Lestari</td><td>Paskibra</td></tr>
+<tr><td>Rizky Pratama</td><td>Pramuka</td></tr>
+<tr><td>Nabila Putri</td><td>Paduan Suara</td></tr>
+<tr><td>Andi Saputra</td><td>Futsal</td></tr>
+<tr><td>Maya Sari</td><td>PMR</td></tr>
+<tr><td>Fajar Hidayat</td><td>Pramuka</td></tr>
+<tr><td>Lina Marlina</td><td>Paskibra</td></tr>
+</table>
+</div>
+
+</div>
+</body>
+</html>
